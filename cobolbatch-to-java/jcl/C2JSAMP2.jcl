@@ -23,7 +23,7 @@
 // SET JAVAHOME='/usr/lpp/java/J11.0_64'
 // SET COBPDS='GAUNEAU.SRC.COBOL'
 // SET LOADLIB='BUILDER.TEST.PDSE.LOAD'
-// SET WORKDIR='/u/gauneau/tmp/c2j'
+// SET WORKDIR='/u/ibmuser/tmp/c2j'
 //*
 //*************************************************************
 //* Create USS env
@@ -180,7 +180,7 @@ cob2 -c ./src/COBPROG.cbl \
 //STDERR   DD SYSOUT=*
 //STDENV   DD *,SYMBOLS=JCLONLY
 WORK_DIR=&WORKDIR.
-COBPATH=/u/sandbox/usr/cobol/V6R4M0/bin
+COBPATH=/u/ibmuser/usr/cobol/V6R4M0/bin
 STEPLIB=IGY.V6R4M0.SIGYCOMP
 /*
 //*
@@ -209,7 +209,7 @@ cjbuild -v  -p test.generated
 //STDENV   DD *,SYMBOLS=JCLONLY
 WORK_DIR=&WORKDIR.
 LOADLIB=&LOADLIB.
-COBPATH=/u/sandbox/usr/cobol/V6R4M0/bin
+COBPATH=/u/ibmuser/usr/cobol/V6R4M0/bin
 STEPLIB=IGY.V6R4M0.SIGYCOMP
 JAVA_HOME=&JAVAHOME
 /*
@@ -252,7 +252,7 @@ cob2 ./COBPROG.o -o "//'$LOADLIB(COBPROG)'"
 //STDENV   DD *,SYMBOLS=JCLONLY
 LOADLIB=&LOADLIB.
 WORK_DIR=&WORKDIR.
-COBPATH=/u/sandbox/usr/cobol/V6R4M0/bin
+COBPATH=/u/ibmuser/usr/cobol/V6R4M0/bin
 STEPLIB=IGY.V6R4M0.SIGYCOMP
 /*
 //*
