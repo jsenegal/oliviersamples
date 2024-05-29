@@ -22,7 +22,7 @@
 // SET LIBPRFX='CEE'
 // SET JAVAHOME='/usr/lpp/java/J11.0_64'
 // SET COBPDS='GAUNEAU.SRC.COBOL'
-// SET LOADLIB='BUILDER.TEST.PDSE.LOAD'
+// SET LOADLIB='IBMUSER.STKREORD.LOADLIB1'
 // SET WORKDIR='/u/ibmuser/tmp/c2j'
 //*
 //*************************************************************
@@ -34,7 +34,8 @@
 //STDPARM  DD *,SYMBOLS=EXECSYS
 SH echo WORK_DIR=$WORK_DIR;
 rm -rf $WORK_DIR;
-mkdir $WORK_DIR;
+mkdir /u/ibmuser/tmp;
+mkdir /u/ibmuser/tmp/c2j;
 cd $WORK_DIR;
 mkdir src;
 mkdir src/test;
@@ -180,10 +181,12 @@ cob2 -c ./src/COBPROG.cbl \
 //STDERR   DD SYSOUT=*
 //STDENV   DD *,SYMBOLS=JCLONLY
 WORK_DIR=&WORKDIR.
-COBPATH=/u/ibmuser/usr/cobol/V6R4M0/bin
-STEPLIB=IGY.V6R4M0.SIGYCOMP
+COBPATH=/usr/lpp/cobol/bin
+STEPLIB=IGY.V6R2M0.SIGYCOMP
 /*
 //*
+//*COBPATH=/u/ibmuser/usr/cobol/V6R4M0/bin
+//*STEPLIB=IGY.V6R4M0.SIGYCOMP
 //*************************************************************
 //* call CJBuild using MIX_31_64 to
 //*    - generate COBOL IOP (IGYCJEST and IGYCJIMC)
@@ -209,7 +212,7 @@ cjbuild -v  -p test.generated
 //STDENV   DD *,SYMBOLS=JCLONLY
 WORK_DIR=&WORKDIR.
 LOADLIB=&LOADLIB.
-COBPATH=/u/ibmuser/usr/cobol/V6R4M0/bin
+COBPATH=/usr/lpp/cobol/bin
 STEPLIB=IGY.V6R4M0.SIGYCOMP
 JAVA_HOME=&JAVAHOME
 /*
@@ -252,7 +255,7 @@ cob2 ./COBPROG.o -o "//'$LOADLIB(COBPROG)'"
 //STDENV   DD *,SYMBOLS=JCLONLY
 LOADLIB=&LOADLIB.
 WORK_DIR=&WORKDIR.
-COBPATH=/u/ibmuser/usr/cobol/V6R4M0/bin
+COBPATH=/usr/lpp/cobol/bin
 STEPLIB=IGY.V6R4M0.SIGYCOMP
 /*
 //*
